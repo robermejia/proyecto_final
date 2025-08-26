@@ -1,4 +1,4 @@
-# Tercer Avance - Gestión de Alumnos (Angular)
+# Proyecto Final - Gestión de Alumnos (Angular)
 
 <p align="center">
   <img src="https://jobs.coderhouse.com/assets/logos_coderhouse.png" alt="CoderHouse" height="100"/>
