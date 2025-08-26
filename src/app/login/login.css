@@ -1,0 +1,146 @@
+/* Reset margins and padding for full-screen login */
+:host {
+  display: block;
+  width: 100vw !important;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Global reset for login page */
+::ng-deep body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+::ng-deep html {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #1a237e 0%, #000000 100%);
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.button-container {
+  margin-top: 24px;
+}
+
+.demo-credentials {
+  margin-top: 32px;
+  padding: 16px;
+  background-color: rgba(26, 35, 126, 0.1);
+  border-radius: 8px;
+  border-left: 4px solid #1a237e;
+  color: #1a237e;
+  border: 1px solid rgba(26, 35, 126, 0.2);
+}
+
+.demo-credentials h4 {
+  margin: 0 0 12px 0;
+  color: #1a237e;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.demo-credentials p {
+  margin: 8px 0;
+  font-size: 14px;
+  color: #1a237e;
+  font-weight: 500;
+}
+
+mat-card {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid #1a237e;
+}
+
+mat-card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 32px;
+  padding: 24px 0 0 0;
+}
+
+mat-card-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a237e;
+  margin-bottom: 16px;
+  justify-content: center;
+}
+
+mat-card-subtitle {
+  color: #3949ab;
+  font-size: 18px;
+  font-weight: 400;
+  opacity: 0.9;
+  text-align: center;
+}
+
+mat-form-field {
+  margin-bottom: 16px;
+}
+
+::ng-deep .mat-form-field-outline {
+  color: rgba(26, 35, 126, 0.3);
+}
+
+::ng-deep .mat-form-field-outline.mat-focused {
+  color: #1a237e;
+}
+
+::ng-deep .mat-form-field-label {
+  color: #1a237e;
+}
+
+::ng-deep .mat-form-field-label.mat-focused {
+  color: #1a237e;
+}
+
+button[type="submit"] {
+  height: 48px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+  color: #ffffff;
+  border: 2px solid #1a237e;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(135deg, #0d47a1 0%, #1a237e 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(26, 35, 126, 0.4);
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.6;
+}

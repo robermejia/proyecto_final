@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <!-- Toolbar superior -->
+  <nav class="toolbar bg-dark navbar navbar-expand-lg shadow-sm px-3 py-3">
+    <div class="container-fluid">
+      <div class="d-flex align-items-center">
+        <!-- Logo / Marca -->
+        <h1 appBigtitle class="toolbar me-4"></h1>
+        
+        <!-- Título de la sección actual -->
+        <div class="section-title">
+          <h4 class="text-light mb-0">{{ currentTitle }}</h4>
+        </div>
+      </div>
+
+      <!-- Información del usuario -->
+      <div class="user-info" *ngIf="currentUser">
+        <div class="user-details">
+          <span class="user-name text-light me-2">{{ currentUser.username }}</span>
+          <span class="user-role badge" [class.bg-primary]="currentUser.role === 'admin'" 
+                [class.bg-secondary]="currentUser.role === 'user'">
+            {{ currentUser.role === 'admin' ? 'Admin' : 'Usuario' }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
