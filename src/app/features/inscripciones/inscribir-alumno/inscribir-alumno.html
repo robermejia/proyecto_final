@@ -1,0 +1,76 @@
+<div class="inscribir-container">
+  <div class="header">
+    <h2>Inscribir Alumno a Curso</h2>
+    <p>Selecciona un alumno y un curso para crear una nueva inscripción</p>
+  </div>
+
+  <div class="content">
+    <!-- Loading state -->
+    <div *ngIf="isLoading" class="loading">
+      <div class="spinner"></div>
+      <p>Cargando datos...</p>
+    </div>
+
+    <!-- Error state -->
+    <div *ngIf="error && !isLoading" class="error-message">
+      <p>{{ error }}</p>
+      <button (click)="cargarDatos()" class="retry-btn">Reintentar</button>
+    </div>
+
+    <!-- Success message -->
+    <div *ngIf="success" class="success-message">
+      <p>{{ success }}</p>
+      <button (click)="limpiarMensajes()" class="close-btn">×</button>
+    </div>
+
+    <!-- Form -->
+    <form *ngIf="!isLoading && !error" (ngSubmit)="inscribirAlumno()" class="inscribir-form">
+      <div class="form-group">
+        <label for="alumno">Alumno:</label>
+        <select 
+          id="alumno" 
+          name="alumno" 
+          [(ngModel)]="selectedStudentId" 
+          required
+          class="form-control">
+          <option value="">Selecciona un alumno</option>
+          <option *ngFor="let alumno of alumnos" [value]="alumno.id">
+            {{ alumno.name }} {{ alumno.surname }} - DNI: {{ alumno.dni }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="curso">Curso:</label>
+        <select 
+          id="curso" 
+          name="curso" 
+          [(ngModel)]="selectedCourseId" 
+          required
+          class="form-control">
+          <option value="">Selecciona un curso</option>
+          <option *ngFor="let curso of cursos" [value]="curso.id">
+            {{ curso.name }} ({{ curso.code }}) - {{ curso.credits }} créditos
+          </option>
+        </select>
+      </div>
+
+      <div class="form-actions">
+        <button 
+          type="submit" 
+          [disabled]="isSubmitting || !selectedStudentId || !selectedCourseId"
+          class="submit-btn">
+          <span *ngIf="isSubmitting" class="spinner-small"></span>
+          {{ isSubmitting ? 'Inscribiendo...' : 'Inscribir Alumno' }}
+        </button>
+        
+        <button 
+          type="button" 
+          (click)="selectedStudentId = ''; selectedCourseId = ''"
+          class="clear-btn">
+          Limpiar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

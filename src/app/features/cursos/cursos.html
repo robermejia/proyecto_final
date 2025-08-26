@@ -1,0 +1,25 @@
+<div class="container mt-4">
+    <h2>Lista de Cursos</h2>
+
+    <div *ngIf="isLoading">Cargando cursos...</div>
+    <div *ngIf="!isLoading && cursos.length > 0">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Código</th>
+                    <th>Créditos</th>
+                    <th>ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let curso of cursos">
+                    <td>{{ curso.name }}</td>
+                    <td>{{ curso.code }}</td>
+                    <td>{{ curso.credits }}</td>
+                    <td>{{ curso.id }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

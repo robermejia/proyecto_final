@@ -1,0 +1,13 @@
+<div class="container mt-4">
+    <h2>Lista de alumnos</h2>
+    
+    
+    <div *ngIf="alumnos; else loading">
+    
+        <app-students-table (deleteEvent)="deleteStudent($event)" [students]="alumnos" [isAdmin]="isAdmin"></app-students-table>
+    </div>
+    
+    <ng-template #loading>
+        <p>Loading...</p>
+    </ng-template>
+</div>

@@ -1,0 +1,219 @@
+.inscripciones-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px 0;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.header h1 {
+  color: #2c3e50;
+  margin: 0 0 10px 0;
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+
+.subtitle {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.content {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Loading state */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: #7f8c8d;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error state */
+.error {
+  text-align: center;
+  padding: 40px 20px;
+  color: #e74c3c;
+}
+
+.retry-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.3s;
+}
+
+.retry-btn:hover {
+  background: #c0392b;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #7f8c8d;
+  font-size: 1.1rem;
+}
+
+/* Table styles */
+.table-container {
+  overflow-x: auto;
+}
+
+.inscripciones-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.inscripciones-table th {
+  background: #f8f9fa;
+  color: #2c3e50;
+  font-weight: 600;
+  text-align: left;
+  padding: 15px;
+  border-bottom: 2px solid #e9ecef;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.inscripciones-table td {
+  padding: 15px;
+  border-bottom: 1px solid #e9ecef;
+  vertical-align: top;
+}
+
+.inscripcion-row:hover {
+  background: #f8f9fa;
+  transition: background 0.2s;
+}
+
+/* Student info */
+.student-info, .course-info {
+  min-width: 200px;
+}
+
+.student-name, .course-name {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.student-id, .course-id {
+  font-size: 0.8rem;
+  color: #7f8c8d;
+  font-family: 'Courier New', monospace;
+}
+
+/* Date info */
+.date-info {
+  color: #34495e;
+  font-size: 0.9rem;
+  min-width: 150px;
+}
+
+/* Status info */
+.status-info {
+  text-align: center;
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.estado-activa {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.estado-cancelada {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.estado-completada {
+  background: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .inscripciones-container {
+    padding: 10px;
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .inscripciones-table th,
+  .inscripciones-table td {
+    padding: 10px 8px;
+    font-size: 0.85rem;
+  }
+  
+  .student-info, .course-info {
+    min-width: 150px;
+  }
+  
+  .date-info {
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .inscripciones-table {
+    font-size: 0.8rem;
+  }
+  
+  .inscripciones-table th,
+  .inscripciones-table td {
+    padding: 8px 5px;
+  }
+  
+  .status-badge {
+    padding: 4px 8px;
+    font-size: 0.7rem;
+  }
+}

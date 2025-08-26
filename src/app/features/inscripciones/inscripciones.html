@@ -1,0 +1,66 @@
+<div class="inscripciones-container">
+  <div class="header">
+    <h1>Registro de Inscripciones</h1>
+    <p class="subtitle">Log de todas las inscripciones de alumnos a cursos</p>
+    <button (click)="toggleFormulario()" class="nueva-inscripcion-btn">
+      {{ mostrarFormulario ? 'Cancelar' : 'Nueva Inscripción' }}
+    </button>
+  </div>
+
+  <!-- Formulario de inscripción -->
+  <div *ngIf="mostrarFormulario" class="formulario-container">
+    <app-inscribir-alumno (inscripcionCreada)="onInscripcionCreada()"></app-inscribir-alumno>
+  </div>
+
+  <div class="content">
+    <!-- Loading state -->
+    <div *ngIf="isLoading" class="loading">
+      <div class="spinner"></div>
+      <p>Cargando inscripciones...</p>
+    </div>
+
+    <!-- Error state -->
+    <div *ngIf="error && !isLoading" class="error">
+      <p>{{ error }}</p>
+      <button (click)="cargarInscripciones()" class="retry-btn">Reintentar</button>
+    </div>
+
+    <!-- Inscripciones table -->
+    <div *ngIf="!isLoading && !error" class="table-container">
+      <div *ngIf="inscripciones.length === 0" class="empty-state">
+        <p>No hay inscripciones registradas</p>
+      </div>
+
+      <table *ngIf="inscripciones.length > 0" class="inscripciones-table">
+        <thead>
+          <tr>
+            <th>Alumno</th>
+            <th>Curso</th>
+            <th>Fecha de Inscripción</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let inscripcion of inscripciones" class="inscripcion-row">
+            <td class="student-info">
+              <div class="student-name">{{ inscripcion.studentName }}</div>
+              <div class="student-id">ID: {{ inscripcion.studentId }}</div>
+            </td>
+            <td class="course-info">
+              <div class="course-name">{{ inscripcion.courseName }}</div>
+              <div class="course-id">ID: {{ inscripcion.courseId }}</div>
+            </td>
+            <td class="date-info">
+              {{ formatearFecha(inscripcion.fechaInscripcion) }}
+            </td>
+            <td class="status-info">
+              <span class="status-badge" [ngClass]="getEstadoClass(inscripcion.estado)">
+                {{ inscripcion.estado | titlecase }}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

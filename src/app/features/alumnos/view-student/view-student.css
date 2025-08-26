@@ -1,0 +1,21 @@
+.avatar-circle {
+    background-color: #3f51b5;
+    color: white;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.initials {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+mat-card {
+    max-width: 600px;
+    margin: auto;
+}
