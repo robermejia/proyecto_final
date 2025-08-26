@@ -1,0 +1,102 @@
+{
+  "courses": [
+    {
+      "name": "Matemáticas",
+      "code": "MAT101",
+      "credits": 5,
+      "id": "d3fd"
+    },
+    {
+      "name": "Programación",
+      "code": "PROG102",
+      "credits": 6,
+      "id": "570f"
+    },
+    {
+      "name": "Física",
+      "code": "FIS103",
+      "credits": 4,
+      "id": "00db"
+    },
+    {
+      "name": "Química",
+      "code": "QUI104",
+      "credits": 3,
+      "id": "2eb4"
+    }
+  ],
+  "students": [
+    {
+      "name": "María",
+      "surname": "Torres",
+      "age": 20,
+      "id": "33",
+      "dni": 33,
+      "average": 8.7
+    },
+    {
+      "name": "Juan",
+      "surname": "Pérez",
+      "age": 22,
+      "id": "44",
+      "dni": 44,
+      "average": 9.2
+    },
+    {
+      "name": "Ana",
+      "surname": "Gómez",
+      "age": 21,
+      "id": "55",
+      "dni": 55,
+      "average": 8.5
+    },
+    {
+      "name": "Luis",
+      "surname": "Martínez",
+      "age": 23,
+      "id": "66",
+      "dni": 66,
+      "average": 9
+    },
+    {
+      "name": "Sofía",
+      "surname": "Ramírez",
+      "age": 19,
+      "id": "77",
+      "dni": 77,
+      "average": 8.8
+    },
+    {
+      "name": "Pedro",
+      "surname": "Hernández",
+      "age": 25,
+      "id": "88",
+      "dni": 88,
+      "average": 9.1
+    },
+    {
+      "name": "Lucía",
+      "surname": "García",
+      "age": 20,
+      "id": "99",
+      "dni": 99,
+      "average": 8.6
+    },
+    {
+      "name": "Javier",
+      "surname": "Fernández",
+      "age": 22,
+      "id": "101",
+      "dni": 101,
+      "average": 9.3
+    },
+    {
+      "name": "Isabel",
+      "surname": "Mejia",
+      "age": 21,
+      "id": "112",
+      "dni": 112,
+      "average": 8.4
+    }
+  ]
+}

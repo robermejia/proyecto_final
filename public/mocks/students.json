@@ -1,0 +1,86 @@
+[
+    {
+        "name": "Juan",
+        "surname": "Pérez",
+        "age": 20,
+        "dni": 1001,
+        "average": 8.5
+    },
+    {
+        "name": "María",
+        "surname": "Gómez",
+        "age": 22,
+        "dni": 1002,
+        "average": 9.0
+    },
+    {
+        "name": "Pedro",
+        "surname": "López",
+        "age": 21,
+        "dni": 1003,
+        "average": 7.5
+    },
+    {
+        "name": "Lucía",
+        "surname": "Ramírez",
+        "age": 23,
+        "dni": 1004,
+        "average": 9.3
+    },
+    {
+        "name": "Carlos",
+        "surname": "Torres",
+        "age": 19,
+        "dni": 1005,
+        "average": 6.8
+    },
+    {
+        "name": "Ana",
+        "surname": "Martínez",
+        "age": 20,
+        "dni": 1006,
+        "average": 8.0
+    },
+    {
+        "name": "Diego",
+        "surname": "Fernández",
+        "age": 24,
+        "dni": 1007,
+        "average": 7.2
+    },
+    {
+        "name": "Sofía",
+        "surname": "Rojas",
+        "age": 21,
+        "dni": 1008,
+        "average": 9.7
+    },
+    {
+        "name": "Martín",
+        "surname": "Castro",
+        "age": 22,
+        "dni": 1009,
+        "average": 6.5
+    },
+    {
+        "name": "Camila",
+        "surname": "Morales",
+        "age": 20,
+        "dni": 1010,
+        "average": 8.9
+    },
+    {
+        "name": "Valeria",
+        "surname": "Silva",
+        "age": 23,
+        "dni": 1011,
+        "average": 9.1
+    },
+    {
+        "name": "Andrés",
+        "surname": "Navarro",
+        "age": 21,
+        "dni": 1012,
+        "average": 7.6
+    }
+]
