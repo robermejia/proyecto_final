@@ -1,0 +1,66 @@
+/* Mantén esto si te ayudaba, no afecta a container-fluid */
+router-outlet,
+.container {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Alturas base */
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+/* Toma todo el alto disponible */
+.container-fluid {
+    min-height: 100vh;
+    padding: 0 !important;
+}
+
+/* Estilo de la barra lateral */
+.sidebar {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    /* Bootstrap light */
+    border-right: 1px solid #dee2e6;
+}
+
+/* Enlaces de la barra lateral */
+.sidebar .nav-link {
+    color: #495057;
+    padding: 0.5rem 1rem;
+    display: block;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #e9ecef;
+    border-radius: 0.375rem;
+}
+
+.sidebar .active {
+    background-color: #0d6efd;
+    color: #fff !important;
+}
+
+/* Contenido principal */
+.main-content {
+    padding: 1.5rem;
+}
+
+/* Material toolbar */
+.mat-toolbar {
+    background-color: #0d6efd !important;
+    color: #fff;
+}
+
+/* Snackbars */
+.snackbar-success {
+    background-color: #198754 !important;
+    color: #fff;
+}
+
+.snackbar-error {
+    background-color: #dc3545 !important;
+    color: #fff;
+}

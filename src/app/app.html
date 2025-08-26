@@ -1,0 +1,24 @@
+<!-- app.component.html -->
+<div class="container-fluid">
+    <!-- Solo mostrar toolbar cuando esté autenticado -->
+    <app-toolbar class="toolbar" *ngIf="auth.isLoggedIn()"></app-toolbar>
+
+    <div class="row g-0" *ngIf="auth.isLoggedIn()">
+        <!-- Columna izquierda: sidebar (navbar) -->
+        <aside class="col-12 col-md-3 col-lg-2 p-0">
+            <app-navbar></app-navbar>
+        </aside>
+
+        <!-- Columna derecha: contenido -->
+        <main class="col-12 col-md-9 col-lg-10 px-4 py-3">
+            <router-outlet></router-outlet>
+        </main>
+    </div>
+    
+    <!-- Mostrar solo el contenido del router cuando no esté autenticado (para login) -->
+    <div *ngIf="!auth.isLoggedIn()">
+        <router-outlet></router-outlet>
+    </div>
+    
+    <app-footer class="footer" *ngIf="auth.isLoggedIn()"></app-footer>
+</div>
