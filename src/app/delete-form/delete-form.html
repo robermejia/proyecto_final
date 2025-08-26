@@ -1,0 +1,31 @@
+<div class="delete-form">
+    <h2>Eliminar Estudiante</h2>
+    <form [formGroup]="studentForm" (ngSubmit)="onDelete()">
+        <div class="form-group">
+            <label for="dni">DNI:</label>
+            <input type="text" id="dni" formControlName="dni" placeholder="Ingrese DNI a eliminar">
+            <div *ngIf="studentForm.get('dni')?.invalid && studentForm.get('dni')?.touched" class="error">
+                DNI es requerido
+            </div>
+        </div>
+
+
+        <ng-template #noStudent>
+            <div class="error">Estudiante no encontrado</div>
+        </ng-template>
+
+        <div class="form-group">
+            <label for="descripcion">descripcion:</label>
+            <input type="text" id="descripcion" formControlName="descripcion"
+                placeholder="Ingrese descripcion a eliminar">
+            <div *ngIf="studentForm.get('descripcion')?.invalid && studentForm.get('descripcion')?.touched"
+                class="error">
+                descripcion es requerido
+            </div>
+        </div>
+
+        <button [disabled]="studentForm.invalid" type="submit" class="delete-btn">Eliminar Estudiante</button>
+    </form>
+
+
+    {{ studentForm.value | json }}

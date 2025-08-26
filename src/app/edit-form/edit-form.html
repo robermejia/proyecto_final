@@ -1,0 +1,31 @@
+<div class="edit-form">
+    <h2>Editar Estudiante</h2>
+    <form [formGroup]="studentForm" (ngSubmit)="onEdit()">
+        <div class="form-group">
+            <label for="dni">DNI:</label>
+            <input id="dni" type="text" formControlName="dni" placeholder="Ingrese DNI a editar" />
+        </div>
+
+        <div class="form-group">
+            <label for="name">Nombre:</label>
+            <input id="name" type="text" formControlName="name" placeholder="Nuevo nombre" />
+        </div>
+
+        <div class="form-group">
+            <label for="surname">Apellido:</label>
+            <input id="surname" type="text" formControlName="surname" placeholder="Nuevo apellido" />
+        </div>
+
+        <div class="form-group">
+            <label for="age">Edad:</label>
+            <input id="age" type="number" formControlName="age" placeholder="Nueva edad" />
+        </div>
+
+        <div class="form-group">
+            <label for="average">Promedio:</label>
+            <input id="average" type="number" formControlName="average" placeholder="Nuevo promedio" />
+        </div>
+
+        <button type="submit" [disabled]="studentForm.invalid">Editar Estudiante</button>
+    </form>
+</div>
