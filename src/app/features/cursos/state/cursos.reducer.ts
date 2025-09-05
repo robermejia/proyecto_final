@@ -11,7 +11,7 @@ export interface CursosState extends EntityState<Course> {
 }
 
 const cursosAdapter = createEntityAdapter<Course>({
-  selectId: (c) => (c as any).id ?? c.id,
+  selectId: (c) => c.id,
 });
 
 const initialState: CursosState = cursosAdapter.getInitialState({

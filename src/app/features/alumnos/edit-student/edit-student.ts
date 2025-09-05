@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { Student } from '../../../../shared/entities';
 import { AlumnosAPI } from '../alumnos-api';
+import { AlumnosActions } from '../state/alumnos.actions';
 
 
 @Component({
@@ -19,6 +21,7 @@ import { AlumnosAPI } from '../alumnos-api';
 export class EditStudent {
   studentForm!: FormGroup;
   student!: Student;
+  private store = inject(Store);
 
   constructor(
     private fb: FormBuilder,
@@ -45,9 +48,9 @@ export class EditStudent {
         ...this.studentForm.getRawValue(), // dni está deshabilitado, por eso usamos getRawValue()
       };
 
-      this.alumnosApi.updateAlumno(updatedStudent).subscribe(() => {
-        this.router.navigate(['/alumnos']);
-      });
+      // Usar NgRx para actualizar el estado
+      this.store.dispatch(AlumnosActions.update({ student: updatedStudent }));
+      this.router.navigate(['/alumnos']);
     }
   }
 

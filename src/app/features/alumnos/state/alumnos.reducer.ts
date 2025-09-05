@@ -11,7 +11,7 @@ export interface AlumnosState extends EntityState<Student> {
 }
 
 const alumnosAdapter = createEntityAdapter<Student>({
-  selectId: (s) => (s as any).id ?? s.dni,
+  selectId: (s) => s.id ?? s.dni.toString(),
 });
 
 const initialState: AlumnosState = alumnosAdapter.getInitialState({
@@ -29,7 +29,7 @@ const reducer = createReducer(
 
   on(AlumnosActions.delete, (state) => ({ ...state, isLoading: true })),
   on(AlumnosActions.deleteSuccess, (state, { student }) =>
-    alumnosAdapter.removeOne((student as any).id ?? student.dni, { ...state, isLoading: false })
+    alumnosAdapter.removeOne(student.id ?? student.dni.toString(), { ...state, isLoading: false })
   ),
   on(AlumnosActions.deleteFailure, (state, { error }) => ({ ...state, isLoading: false, error })),
 

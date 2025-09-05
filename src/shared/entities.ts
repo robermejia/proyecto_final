@@ -1,6 +1,6 @@
 export interface Student {
     id?: string;
-    fullname: any;
+    fullname?: string;
     name: string;
     surname: string;
     age: number;
