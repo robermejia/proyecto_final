@@ -50,12 +50,16 @@ export class Login {
         const user = this.auth.getCurrentUser();
         this.store.dispatch(AppActions.setUser({ user }));
         this.snackBar.open('Inicio de sesión exitoso', 'Cerrar', {
-          duration: 3000,
+          duration: 2000,
           horizontalPosition: 'right',
           verticalPosition: 'top',
           panelClass: ['snackbar-success']
         });
-        this.router.navigate(['/alumnos']);
+        
+        // Pequeño delay para asegurar que el estado se actualice
+        setTimeout(() => {
+          this.router.navigate(['/alumnos']);
+        }, 100);
       } else {
         this.snackBar.open('Credenciales incorrectas', 'Cerrar', {
           duration: 3000,
