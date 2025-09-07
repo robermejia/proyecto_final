@@ -1,16 +1,98 @@
-<mat-card>
-    <mat-card-title>Edit Student</mat-card-title>
-    <form [formGroup]="studentForm" (ngSubmit)="submitForm()">
-        <mat-card-content>
-            <input formControlName="name" placeholder="Name" required>
-            <input formControlName="surname" placeholder="Surname" required>
-            <input type="number" formControlName="dni" placeholder="DNI" [disabled]="true">
-            <input type="number" formControlName="age" placeholder="Age" required>
-            <input type="number" formControlName="average" placeholder="Average" required>
-        </mat-card-content>
-        <mat-card-actions>
-            <button mat-raised-button type="submit" color="primary">Save</button>
-            <button mat-button type="button" (click)="cancel()">Cancel</button>
-        </mat-card-actions>
-    </form>
-</mat-card>
+<div class="container mt-5" *ngIf="student">
+    <mat-card class="shadow-sm">
+        <mat-card-header>
+            <mat-card-title>Editar Estudiante</mat-card-title>
+            <mat-card-subtitle>Modifica la información del estudiante</mat-card-subtitle>
+        </mat-card-header>
+        
+        <form [formGroup]="studentForm" (ngSubmit)="submitForm()">
+            <mat-card-content>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="name" class="form-label">Nombre</label>
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            id="name"
+                            formControlName="name" 
+                            placeholder="Nombre del estudiante"
+                            [class.is-invalid]="studentForm.get('name')?.invalid && studentForm.get('name')?.touched">
+                        <div class="invalid-feedback" *ngIf="studentForm.get('name')?.invalid && studentForm.get('name')?.touched">
+                            El nombre es requerido
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <label for="surname" class="form-label">Apellido</label>
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            id="surname"
+                            formControlName="surname" 
+                            placeholder="Apellido del estudiante"
+                            [class.is-invalid]="studentForm.get('surname')?.invalid && studentForm.get('surname')?.touched">
+                        <div class="invalid-feedback" *ngIf="studentForm.get('surname')?.invalid && studentForm.get('surname')?.touched">
+                            El apellido es requerido
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <label for="dni" class="form-label">DNI</label>
+                        <input 
+                            type="number" 
+                            class="form-control" 
+                            id="dni"
+                            formControlName="dni" 
+                            placeholder="DNI del estudiante"
+                            [disabled]="true">
+                        <div class="form-text">El DNI no se puede modificar</div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <label for="age" class="form-label">Edad</label>
+                        <input 
+                            type="number" 
+                            class="form-control" 
+                            id="age"
+                            formControlName="age" 
+                            placeholder="Edad del estudiante"
+                            [class.is-invalid]="studentForm.get('age')?.invalid && studentForm.get('age')?.touched">
+                        <div class="invalid-feedback" *ngIf="studentForm.get('age')?.invalid && studentForm.get('age')?.touched">
+                            La edad es requerida
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <label for="average" class="form-label">Promedio</label>
+                        <input 
+                            type="number" 
+                            class="form-control" 
+                            id="average"
+                            formControlName="average" 
+                            placeholder="Promedio (0-10)"
+                            step="0.1"
+                            min="0"
+                            max="10"
+                            [class.is-invalid]="studentForm.get('average')?.invalid && studentForm.get('average')?.touched">
+                        <div class="invalid-feedback" *ngIf="studentForm.get('average')?.invalid && studentForm.get('average')?.touched">
+                            El promedio debe estar entre 0 y 10
+                        </div>
+                    </div>
+                </div>
+            </mat-card-content>
+            
+            <mat-card-actions class="d-flex justify-content-end gap-2">
+                <button mat-button type="button" (click)="cancel()">Cancelar</button>
+                <button mat-raised-button type="submit" color="primary" [disabled]="studentForm.invalid">
+                    Guardar Cambios
+                </button>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+</div>
+
+<div class="container mt-5" *ngIf="!student">
+    <div class="alert alert-danger text-center">
+        No se encontró la información del estudiante.
+    </div>
+</div>
