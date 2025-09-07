@@ -7,7 +7,13 @@
         </button>
     </div>
     
-    <div *ngIf="!isLoading && alumnos.length > 0; else loadingOrEmpty">
+    <!-- Mostrar errores -->
+    <div *ngIf="error" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error:</strong> No se pudieron cargar los alumnos. {{ error }}
+        <button type="button" class="btn-close" (click)="clearError()" aria-label="Close"></button>
+    </div>
+    
+    <div *ngIf="!isLoading && alumnos.length > 0 && !error; else loadingOrEmpty">
         <app-students-table (deleteEvent)="deleteStudent($event)" [students]="alumnos" [isAdmin]="isAdmin"></app-students-table>
     </div>
     
@@ -17,6 +23,7 @@
                 <span class="visually-hidden">Cargando...</span>
             </div>
             <p class="mt-2">Cargando alumnos...</p>
+            <small class="text-muted">Cargando en 2 segundos...</small>
         </div>
         <ng-template #emptyState>
             <div class="text-center">

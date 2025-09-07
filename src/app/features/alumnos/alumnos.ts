@@ -7,7 +7,7 @@ import { switchMap, Subject, takeUntil } from 'rxjs';
 import { Auth } from '../../core/auth/auth';
 import { Store } from '@ngrx/store';
 import { AlumnosActions } from './state/alumnos.actions';
-import { selectAllAlumnos, selectAlumnosIsLoading } from './state/alumnos.reducer';
+import { selectAllAlumnos, selectAlumnosIsLoading, selectAlumnosError } from './state/alumnos.reducer';
 
 @Component({
   selector: 'app-alumnos',
@@ -19,6 +19,7 @@ import { selectAllAlumnos, selectAlumnosIsLoading } from './state/alumnos.reduce
 export class Alumnos implements OnInit, OnDestroy {
   alumnos: Student[] = [];
   isLoading: boolean = true;
+  error: unknown | null = null;
   private auth = inject(Auth);
   private store = inject(Store);
   private destroy$ = new Subject<void>();
@@ -26,15 +27,31 @@ export class Alumnos implements OnInit, OnDestroy {
   constructor(private alumnosApi: AlumnosAPI) { }
 
   ngOnInit() {
+    console.log('Alumnos ngOnInit - Iniciando carga de alumnos...');
+    
+    // Cargar alumnos inmediatamente
     this.store.dispatch(AlumnosActions.load());
     
     this.store.select(selectAllAlumnos)
       .pipe(takeUntil(this.destroy$))
-      .subscribe(alumnos => this.alumnos = alumnos);
+      .subscribe(alumnos => {
+        console.log('Alumnos cargados:', alumnos);
+        this.alumnos = alumnos;
+      });
     
     this.store.select(selectAlumnosIsLoading)
       .pipe(takeUntil(this.destroy$))
-      .subscribe(isLoading => this.isLoading = isLoading);
+      .subscribe(isLoading => {
+        console.log('Estado de carga:', isLoading);
+        this.isLoading = isLoading;
+      });
+    
+    this.store.select(selectAlumnosError)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(error => {
+        console.log('Error en alumnos:', error);
+        this.error = error;
+      });
   }
 
   ngOnDestroy() {
@@ -43,12 +60,17 @@ export class Alumnos implements OnInit, OnDestroy {
   }
 
   refreshAlumnos() {
+    this.error = null; // Limpiar errores previos
     this.store.dispatch(AlumnosActions.load());
   }
 
   deleteStudent(student: Student) {
     console.log("Eliminando alumno", student);
     this.store.dispatch(AlumnosActions.delete({ student }));
+  }
+
+  clearError() {
+    this.error = null;
   }
 
   get isAdmin(): boolean {
