@@ -26,11 +26,17 @@
     </ng-container>
 
     <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
         <td mat-cell *matCellDef="let element">
-            <button (click)="viewDetails(element)" mat-button color="accent">Ver</button>
-            <button (click)="editStudent(element)" mat-button color="primary" *ngIf="isAdmin">Editar</button>
-            <button (click)="deleteStudent(element)" mat-button color="warn" *ngIf="isAdmin">Eliminar</button>
+            <button (click)="viewDetails(element)" mat-button color="accent" class="me-1">
+                <i class="material-icons">visibility</i> Ver
+            </button>
+            <button (click)="editStudent(element)" mat-button color="primary" *ngIf="isAdmin" class="me-1">
+                <i class="material-icons">edit</i> Editar
+            </button>
+            <button (click)="deleteStudent(element)" mat-button color="warn" *ngIf="isAdmin">
+                <i class="material-icons">delete</i> Eliminar
+            </button>
         </td>
     </ng-container>
 

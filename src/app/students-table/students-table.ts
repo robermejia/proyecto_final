@@ -25,19 +25,28 @@ export class StudentsTable {
 
 
   viewDetails(student: Student) {
+    console.log("Viendo detalles del estudiante:", student);
+    // Usar query params como fallback
     this.router.navigate(['/view-student'], {
-      state: { student: student }
+      state: { student: student },
+      queryParams: { id: student.id || student.dni.toString() }
     });
   }
 
   deleteStudent(student: Student) {
     console.log("Eliminando alumno", student);
-    this.deleteEvent.emit(student);
+    const confirmed = confirm(`¿Estás seguro de que quieres eliminar a ${student.name} ${student.surname}?`);
+    if (confirmed) {
+      this.deleteEvent.emit(student);
+    }
   }
 
   editStudent(student: Student) {
+    console.log("Editando estudiante:", student);
+    // Usar query params como fallback
     this.router.navigate(['/edit-student'], {
-      state: { student }
+      state: { student },
+      queryParams: { id: student.id || student.dni.toString() }
     });
   }
 
