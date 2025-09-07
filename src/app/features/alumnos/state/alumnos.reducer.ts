@@ -15,7 +15,7 @@ const alumnosAdapter = createEntityAdapter<Student>({
 });
 
 const initialState: AlumnosState = alumnosAdapter.getInitialState({
-  isLoading: false,
+  isLoading: true, // Iniciar en true para mostrar loading al cargar la página
   error: null,
 });
 
@@ -58,8 +58,8 @@ export const {
   selectTotal: selectAlumnosTotal,
 } = alumnosAdapter.getSelectors(selectAlumnosState);
 
-export const selectAlumnosIsLoading = (state: AlumnosState) => state.isLoading;
-export const selectAlumnosError = (state: AlumnosState) => state.error;
+export const selectAlumnosIsLoading = alumnosFeature.selectIsLoading;
+export const selectAlumnosError = alumnosFeature.selectError;
 
 
 
